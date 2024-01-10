@@ -11,7 +11,6 @@ import { Suspense } from "react";
 export default function AllPage() {
   const { signedIn } = useSelector((state) => state.session);
   const { role } = useSelector((state) => state.user);
-  console.log(signedIn);
 
   return (
     <>

@@ -15,19 +15,15 @@ const initialState = {
     name: "auth/user",
     initialState,
     reducers: {
-      setFullName: (state, action) => {
-        state.fullName = action.payload;
-      },
-      setEmail: (state, action) => {
-        state.email = action.payload;
-      },
-      setRole: (state, action) => {
-        state.role = action.payload;
-      },
+     setUser: (state, action)=>{
+      state.fullName = `${action.payload.frist_name} ${action.payload.last_name}`
+      state.email=action.payload.email
+      state.phone= action.payload.phone_number
+     }
     },
   });
   
-  export const { setFullName, setEmail, setRole } = userSlice.actions;
+  export const { setUser } = userSlice.actions;
   
   export default userSlice.reducer;
 

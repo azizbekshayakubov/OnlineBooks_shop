@@ -4,8 +4,14 @@ import ActionLink from "../../components/ui/ActionLink";
 import Form from "../../components/template/Form";
 import Textinput from "../../components/ui/Textinput";
 import Button from "../../components/ui/Button";
+import useAuth from "../../utils/hooks/useAuth";
 
 export default function Login() {
+  const { signIn } = useAuth();
+  const handleSubmit = async () => {
+    await signIn();
+  };
+
   return (
     <AuthContainer img={coverImg}>
       <h2 className="auth-title">Kirish</h2>
@@ -13,10 +19,10 @@ export default function Login() {
         Sizning hisobingiz yo’qmi?
         <ActionLink path="/register"> Ro’yxatdan o’tish</ActionLink>
       </p>
-      <Form className="auth-form-control">
+      <Form className="auth-form-control" onSubmit={handleSubmit}>
         <Textinput placeholder="Email" />
         <Textinput placeholder="Parol" />
-        <Button>Keyingi qadam</Button>
+        <Button type="submit">Keyingi qadam</Button>
       </Form>
     </AuthContainer>
   );
