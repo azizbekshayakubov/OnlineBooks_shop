@@ -23,6 +23,7 @@ export const sessionSlice = createSlice({
         state.signedIn = false
         state.token = ''
     },
+    //
 }
 });
 

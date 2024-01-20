@@ -48,6 +48,10 @@ export default function Regiter() {
       </Form>
 
       <Toaster position="top-center" reve />
+
+
     </AuthContainer>
+
+    //register
   );
 }
