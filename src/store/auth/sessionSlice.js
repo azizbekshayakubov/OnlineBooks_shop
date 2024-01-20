@@ -2,26 +2,29 @@
 
 import { createSlice } from "@reduxjs/toolkit";
 
-
+const accessTokenBook = localStorage.getItem('accessTokenBook')
 
 const initialState = {
-  token: "",
-  signedIn: false,
+  token: accessTokenBook || '',
+  signedIn: accessTokenBook ? true : false
 };
 
 export const sessionSlice = createSlice({
   name: "auth/session",
   initialState,
-  reducers: {
-    setToken: (state, action) => {
-      state.token = action.payload;
+  reducers:  {
+    setSignInSuccess: (state, action) => {
+        state.signedIn = true
+        state.token = action.payload
+        localStorage.setItem('accessTokenBook', action.payload)
     },
-    setSignInStatus: (state, action) => {
-      state.signedIn = action.payload;
+    setSignOutSuccess: (state) => {
+        state.signedIn = false
+        state.token = ''
     },
-  },
+}
 });
 
-export const { setToken, setSignInStatus } = sessionSlice.actions;
+export const { setSignInSuccess, setSignOutSuccess } = sessionSlice.actions;
 
 export default sessionSlice.reducer;
