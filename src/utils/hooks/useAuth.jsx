@@ -8,6 +8,7 @@ export default function useAuth() {
   const dispatch = useDispatch();
 
   const signUp = async (values) => {
+
     try {
       const resp = await api.post(API_ENDPOINTS.REGISTER, values);
       dispatch(setSignInSuccess(resp.tokens.access));
@@ -48,6 +49,8 @@ export default function useAuth() {
         message: JSON.stringify(error.response.data),
       };
     }
+
+
   };
   const signOut = async () => {
     console.log("signOut");

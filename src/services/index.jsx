@@ -1,7 +1,9 @@
 import axios from "axios";
 import appConfig from "../configs/appConfig";
 import store from "../store";
+
 import { setSignInSuccess } from "../store/auth/sessionSlice";
+
 
 const unAuthenticateCode = ["403"];
 
@@ -31,7 +33,10 @@ api.interceptors.response.use(
     const { response } = error;
 
     if (unAuthenticateCode.includes(response.status)) {
+
       return store.dispatch(setSignInSuccess());
+
+
     }
 
     return Promise.reject(error);

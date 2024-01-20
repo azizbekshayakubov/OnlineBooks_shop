@@ -12,6 +12,7 @@ const initialState = {
 export const sessionSlice = createSlice({
   name: "auth/session",
   initialState,
+
   reducers:  {
     setSignInSuccess: (state, action) => {
         state.signedIn = true
@@ -26,5 +27,9 @@ export const sessionSlice = createSlice({
 });
 
 export const { setSignInSuccess, setSignOutSuccess } = sessionSlice.actions;
+
+
+
+
 
 export default sessionSlice.reducer;

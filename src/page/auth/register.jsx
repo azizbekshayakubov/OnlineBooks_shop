@@ -6,7 +6,9 @@ import Textinput from "../../components/ui/Textinput";
 import Button from "../../components/ui/Button";
 import useAuth from "../../utils/hooks/useAuth";
 import getFormValues from "../../utils/getFormValues";
+
 import toast, { Toaster } from "react-hot-toast";
+
 // import HttpClient from "../../services/HttpsClient";
 // import { API_ENDPOINTS } from "../../services/ApiEndpoints";
 // import { useEffect } from "react";
@@ -18,6 +20,8 @@ export default function Regiter() {
     const values = getFormValues("register-form");
     const resp = await signUp(values);
     !resp.success && toast.error(resp.message);
+
+
   };
 
   // const getUsers = async () => {
